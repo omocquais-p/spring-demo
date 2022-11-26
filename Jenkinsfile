@@ -14,7 +14,7 @@ pipeline {
         stage('Build image') {
             steps {
                 withKubeConfig([credentialsId: 'kube-config-file']) {
-                    sh 'ytt -f image.yaml --data-value dockerusername=sandeepnvmware | kubectl apply -f -'
+                    sh 'ytt -f image.yaml --data-value dockerusername=omocquais | kubectl apply -f -'
                     sh '/scripts/image-build-status.sh'
                 }
             }
