@@ -1,0 +1,16 @@
+#@ load("@ytt:data", "data")
+apiVersion: kpack.io/v1alpha2
+kind: Image
+metadata:
+  name: spring-demo-app
+  namespace: default
+spec:
+  tag: #@ "{}/spring-demo".format(data.values.dockerusername)
+  serviceAccountName: spring-demo-service-account
+  builder:
+    name: my-builder
+    kind: Builder
+  source:
+    git:
+      url: https://gitlab.com/sanagaraj-pivotal/spring-demo.git
+      revision: 189be85b248b8dbfcca44eede0e1f7ff9d8fc812
