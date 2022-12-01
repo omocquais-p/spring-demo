@@ -1,22 +1,19 @@
 pipeline {
     agent {
         docker {
-            image 'jenkins-node:9'
+            image 'jenkins-node:latest'
+            args '-v $HOME/.m2:/root/.m2'
         }
     }
-
     stages {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Build image') {
+        stage('Test') {
             steps {
-                withKubeConfig([credentialsId: 'kube-config-file']) {
-                    sh 'ytt -f image.yaml --data-value dockerusername=omocquais | kubectl apply -f -'
-                    sh '/scripts/image-build-status.sh'
-                }
+                sh 'mvn -B clean package'
             }
         }
     }
