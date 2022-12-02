@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'jenkins-node:latest'
-            reuseNode true
+            label 'my-defined-label'
         }
     }
     stages {
