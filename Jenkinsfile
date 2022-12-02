@@ -11,9 +11,9 @@ pipeline {
                 sh 'touch build.step'
                 sh 'ls -l'
                 sh 'printenv'
-                sh 'tree /root/.m2'
+                sh 'ls -l /root/.m2'
                 sh 'mvn -B -DskipTests clean package'
-                sh 'tree /root/.m2'
+                sh 'ls -l /root/.m2'
             }
         }
         stage('Test') {
@@ -21,7 +21,7 @@ pipeline {
                 sh 'touch test.step'
                 sh 'ls -l'
                 sh 'mvn -B clean package'
-                sh 'tree /root/.m2'
+                sh 'ls -l /root/.m2'
 
             }
         }
