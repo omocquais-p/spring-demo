@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'jenkins-node:latest'
-            args '-v ${env.WORKSPACE}/maven-repo:/root/.m2'
+            args '-v ${MAVEN_CONFIG}:/root/.m2'
         }
     }
     stages {
