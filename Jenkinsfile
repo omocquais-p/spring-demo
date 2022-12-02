@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'jenkins-node:latest'
-            label 'my-defined-label'
         }
     }
     stages {
