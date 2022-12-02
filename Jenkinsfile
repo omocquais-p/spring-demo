@@ -12,7 +12,6 @@ pipeline {
                 sh 'touch build.step'
                 sh 'ls -l'
                 sh 'printenv'
-                sh 'echo ${env.WORKSPACE}'
                 sh 'mvn -B -DskipTests clean package'
             }
         }
