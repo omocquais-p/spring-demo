@@ -5,7 +5,7 @@ pipeline {
             reuseNode true
             args '-v ${MAVEN_CONFIG}:/root/mavenrepo'
         }
-    }È
+    }
     stages {
         stage('Build') {
             steps {
