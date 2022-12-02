@@ -3,7 +3,6 @@ pipeline {
         docker {
             image 'jenkins-node:latest'
             reuseNode true
-            args '-v ${MAVEN_CONFIG}:/root/mavenrepo'
         }
     }
     stages {
